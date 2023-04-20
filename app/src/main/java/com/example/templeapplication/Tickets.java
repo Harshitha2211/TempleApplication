@@ -1,12 +1,15 @@
 package com.example.templeapplication;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -31,6 +34,7 @@ public class Tickets extends Fragment {
             new MyListData("Vada", 20, R.drawable.vada),
             new MyListData("Pulihora", 25, R.drawable.pulihora),
     };
+
 
 
 
@@ -60,7 +64,10 @@ public class Tickets extends Fragment {
         return view;
 
 
+
     }
+
+
 
 
 }

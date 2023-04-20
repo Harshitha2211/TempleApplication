@@ -1,9 +1,6 @@
 package com.example.templeapplication;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,10 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-
 public class MyListadapter extends RecyclerView.Adapter<MyListadapter.ViewHolder> {
     private MyListData[] listdata;
+    
 
     public MyListadapter(MyListData[] listData) {
         this.listdata = listData;
@@ -55,13 +51,13 @@ public class MyListadapter extends RecyclerView.Adapter<MyListadapter.ViewHolder
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View view) {
-
                 items=myListData.item;
                 total= myListData.amount;
                 img=myListData.imgid;
                 amt+=total;
                 Toast.makeText(view.getContext(), "Total amount: "+amt, Toast.LENGTH_SHORT).show();
                 Tickets.txt.setText("Total Amount : "+amt);
+                
                 Tickets.databaseHelper.insertData(new MyListData(items,total,img));
 
 
@@ -73,6 +69,12 @@ public class MyListadapter extends RecyclerView.Adapter<MyListadapter.ViewHolder
             public void onClick(View view) {
                 amt=0;
                 Tickets.txt.setText("Total Amount: "+amt);
+
+            }
+        });
+        Tickets.pbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
             }
         });

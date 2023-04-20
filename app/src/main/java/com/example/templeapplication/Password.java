@@ -1,5 +1,4 @@
 package com.example.templeapplication;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -15,7 +14,6 @@ import java.util.Date;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
-
 public class Password extends AppCompatActivity {
     EditText ed1;
     TextView text, txt1;
@@ -23,7 +21,6 @@ public class Password extends AppCompatActivity {
     final Random random = new Random();
     String pass;
     public int counter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,29 +28,21 @@ public class Password extends AppCompatActivity {
         getSupportActionBar().hide();
         text = findViewById(R.id.txt1);
         txt1 = findViewById(R.id.txt);
-        String version =
-                "V" + BuildConfig.VERSION_NAME;
+        String version = "V" + BuildConfig.VERSION_NAME;
         txt1.setText(version);
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         String currentDateandTime = sdf.format(new Date());
         text.setText(currentDateandTime);
         ed1 = findViewById(R.id.edit);
-        change();
-
-
+        //change();
     }
-
-
-    private void change() {
+    /*private void change() {
         StringBuilder sb = new StringBuilder(10);
-
         for (int i = 0; i < 6; i++) {
             sb.append(DATA.charAt(random.nextInt(DATA.length())));
             pass = String.valueOf(sb);
             counter++;
             Timer();
-
-
         }
         System.out.println();
         System.out.println(sb);
@@ -77,18 +66,14 @@ public class Password extends AppCompatActivity {
             }
         };
         timer.schedule(doAsynchronousTask, 0, 120000);
-    }
-
-
+    }*/
     public void pass(View view) {
-
         if (ed1.length() == 0) {
             ed1.setError("Please enter password");
         }
-        if (ed1.getText().toString().equals(pass)) {
+        if (ed1.getText().toString().equals("123456")) {
             Toast.makeText(this, "Login Successfull", Toast.LENGTH_SHORT).show();
             Intent in = new Intent(Password.this, MainActivity2.class);
-            in.setAction("android.permission.BIND_DEVICE_ADMIN");
             startActivity(in);
         } else {
             Toast.makeText(this, "Login Unsuccessfull", Toast.LENGTH_SHORT).show();
